@@ -10,6 +10,7 @@ import io.flutter.embedding.engine.dart.DartExecutor
 interface EngineBindingsDelegate {
     fun onNext()
     fun onBack()
+    fun reseiveMesaggeOfFlutter(message: String)
 }
 
 class EngineBindings(activity: Activity, entrypoint: String, cacheId: String) {
@@ -30,14 +31,3 @@ class EngineBindings(activity: Activity, entrypoint: String, cacheId: String) {
 
     fun init() {}
 }
-
-//******************************************************************************************
-//Metodo 2
-//engine = app.flutterEngine
-// Configure an initial route.
-//engine.navigationChannel.setInitialRoute("/")
-// Start executing Dart code to pre-warm the FlutterEngine.
-//engine.dartExecutor.executeDartEntrypoint(
-//    DartExecutor.DartEntrypoint.createDefault()
-//)
-//******************************************************************************************

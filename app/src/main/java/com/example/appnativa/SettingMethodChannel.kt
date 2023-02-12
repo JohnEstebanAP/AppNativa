@@ -25,17 +25,17 @@ class SettingMethodChannel(engine: FlutterEngine) {
         private fun attach() {
             channel.setMethodCallHandler { call, result ->
                 when (call.method) {
-                    "next" -> {
-                        Log.d("NextPage", "Startpage")
-                        this.delegate.onNext()
+                    "sendFlutterMessage" -> {
+                        this.delegate.reseiveMesaggeOfFlutter(call.arguments.toString())
                         result.success(null)
                     }
-                    "back" -> {
+                    "backToHome" -> {
                         this.delegate.onBack()
                         result.success(null)
                     }
-                    "getProductPageInfo" -> {
-                        result.success("data")
+                    "next" -> {
+                        this.delegate.onNext()
+                        result.success(null)
                     }
                     else -> {
                         result.notImplemented()
@@ -43,12 +43,21 @@ class SettingMethodChannel(engine: FlutterEngine) {
                 }
             }
         }
+
+        fun sendFlutterMessage(message: String) {
+            try {
+                channel.invokeMethod("getIOSNativeMessage", message)
+            } catch (exception: Exception) {
+                Log.w("PlatformException", "$exception")
+            }
+        }
     }
+
 
     init {
         channel = MethodChannel(
             engine.dartExecutor.binaryMessenger,
-            "com.example.flutter_module"
+            "flutter"
         )
         attach()
         isStart = true

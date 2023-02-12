@@ -9,7 +9,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven(url = "../flutter_module/host/outputs/repo")
+        maven(url = "../flutter-module/host/outputs/repo")
         maven(url = "https://storage.googleapis.com/download.flutter.io")
     }
 }

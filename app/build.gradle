@@ -53,8 +53,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //implement module Flutter
-    debugImplementation 'com.example.fluttermodule.flutter_module:flutter_debug:1.0'
-    profileImplementation 'com.example.fluttermodule.flutter_module:flutter_profile:1.0'
-    releaseImplementation 'com.example.fluttermodule.flutter_module:flutter_release:1.0'
+    debugImplementation 'com.sofka.sofkafluttermodule.sofka_flutter_module:flutter_debug:1.0'
+    profileImplementation 'com.sofka.sofkafluttermodule.sofka_flutter_module:flutter_profile:1.0'
+    releaseImplementation 'com.sofka.sofkafluttermodule.sofka_flutter_module:flutter_release:1.0'
 
 }
