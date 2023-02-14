@@ -1,6 +1,7 @@
-package com.example.appnativa
+package com.example.appnativa.views.utils
 
 import android.util.Log
+import com.example.appnativa.EngineBindingsDelegate
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
@@ -18,23 +19,28 @@ class SettingMethodChannel(engine: FlutterEngine) {
 
         @JvmStatic
         fun setDelegate(delegate: EngineBindingsDelegate) {
-            this.delegate = delegate
+            Companion.delegate = delegate
             attach()
+        }
+
+        @JvmStatic
+        fun getDelegate(): String {
+            return Companion.delegate.toString()
         }
 
         private fun attach() {
             channel.setMethodCallHandler { call, result ->
                 when (call.method) {
                     "sendFlutterMessage" -> {
-                        this.delegate.reseiveMesaggeOfFlutter(call.arguments.toString())
+                        delegate.reseiveMesaggeOfFlutter(call.arguments.toString())
                         result.success(null)
                     }
                     "backToHome" -> {
-                        this.delegate.onBack()
+                        delegate.onBack()
                         result.success(null)
                     }
                     "next" -> {
-                        this.delegate.onNext()
+                        delegate.onNext()
                         result.success(null)
                     }
                     else -> {

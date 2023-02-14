@@ -1,9 +1,11 @@
-package com.example.appnativa
+package com.example.appnativa.views
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import com.example.appnativa.EngineBindingsDelegate
+import com.example.appnativa.views.utils.DataModel
+import com.example.appnativa.views.utils.SettingMethodChannel
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
@@ -24,7 +26,7 @@ class ModuleFlutter : FlutterActivity(), EngineBindingsDelegate {
         }
     }
 
-    //se recupera la pantalla precargada en caché y se lo pasa como su proveedor
+    //se recupera la pantalla precargada en caché y se le pasa como su proveedor
     override fun provideFlutterEngine(context: Context): FlutterEngine? {
         return FlutterEngineCache.getInstance().get("flutter")
     }
@@ -38,6 +40,10 @@ class ModuleFlutter : FlutterActivity(), EngineBindingsDelegate {
         SettingMethodChannel.setDelegate(this)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        SettingMethodChannel.detach()
+    }
 
     override fun onNext() {
         startActivity(Intent(this, MainActivity::class.java))

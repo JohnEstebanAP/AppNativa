@@ -1,6 +1,7 @@
 package com.example.appnativa
 
 import android.app.Activity
+import com.example.appnativa.views.utils.SettingMethodChannel
 import io.flutter.FlutterInjector
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
