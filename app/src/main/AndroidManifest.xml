@@ -14,13 +14,6 @@
         android:theme="@style/Theme.AppNativa"
         tools:targetApi="31">
         <activity
-            android:name=".MyDiscountActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".views.ModuleFlutter"
             android:exported="false">
             <meta-data

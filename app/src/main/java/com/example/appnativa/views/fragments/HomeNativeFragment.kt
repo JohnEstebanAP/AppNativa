@@ -1,5 +1,7 @@
 package com.example.appnativa.views.fragments
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,12 +9,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import com.example.appnativa.databinding.FragmentHomeNativeBinding
 import com.example.appnativa.views.ModuleFlutter
 import com.example.appnativa.views.utils.DataModel
 import com.example.appnativa.views.utils.SettingMethodChannel
+import java.security.Provider.Service
 
 class HomeNativeFragment : Fragment() {
 
